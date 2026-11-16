@@ -1,0 +1,93 @@
+{
+  "project": {
+    "input": {
+      "filter": {
+        "input": {
+          "optional": {
+            "left": {
+              "join": {
+                "left": {
+                  "values": {
+                    "vars": [
+                      "x"
+                    ],
+                    "rows": [
+                      {
+                        "x": {
+                          "type": "iri",
+                          "value": "http://example.org/a"
+                        }
+                      },
+                      {
+                        "x": {
+                          "type": "iri",
+                          "value": "http://example.org/a"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "right": {
+                  "path": {
+                    "graph": {
+                      "type": "iri",
+                      "value": "http://example.org/g"
+                    },
+                    "start": {
+                      "var": "x"
+                    },
+                    "path": {
+                      "one_or_more": {
+                        "predicate": {
+                          "type": "iri",
+                          "value": "http://example.org/part"
+                        }
+                      }
+                    },
+                    "end": {
+                      "var": "y"
+                    }
+                  }
+                }
+              }
+            },
+            "right": {
+              "triple": {
+                "graph": {
+                  "type": "iri",
+                  "value": "http://example.org/g"
+                },
+                "s": {
+                  "var": "y"
+                },
+                "p": {
+                  "type": "iri",
+                  "value": "http://example.org/label"
+                },
+                "o": {
+                  "var": "l"
+                }
+              }
+            }
+          }
+        },
+        "expr": {
+          "same_term": [
+            {
+              "var": "l"
+            },
+            {
+              "type": "literal",
+              "value": "保留"
+            }
+          ]
+        }
+      }
+    },
+    "vars": [
+      "x",
+      "y",
+      "l"
+    ]
+  }
+}

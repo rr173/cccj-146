@@ -1,0 +1,71 @@
+{
+  "_comment": "Hand-written expectations for examples/demo/data/graph.jsonl. These were read off the fixture by hand, not produced by the query engine.",
+  "graph": "http://example.org/g",
+  "edges": [
+    ["http://example.org/a", "http://example.org/part", "http://example.org/b"],
+    ["http://example.org/b", "http://example.org/part", "http://example.org/d"],
+    ["http://example.org/a", "http://example.org/part", "http://example.org/c"],
+    ["http://example.org/c", "http://example.org/part", "http://example.org/d"],
+    ["http://example.org/d", "http://example.org/part", "http://example.org/a"]
+  ],
+  "labels": {
+    "http://example.org/b": "保留",
+    "http://example.org/c": "其他"
+  },
+  "checks": [
+    {
+      "name": "one_or_more_from_a_each_endpoint_once",
+      "query": "reach_closure.json",
+      "expect": {
+        "x": "http://example.org/a",
+        "endpoint_multiplicities": {
+          "http://example.org/a": 1,
+          "http://example.org/b": 1,
+          "http://example.org/c": 1,
+          "http://example.org/d": 1
+        }
+      }
+    },
+    {
+      "name": "two_a_rows_make_each_endpoint_twice",
+      "query": "reach_from_a_twice.json",
+      "expect": {
+        "x": "http://example.org/a",
+        "endpoint_multiplicities": {
+          "http://example.org/a": 2,
+          "http://example.org/b": 2,
+          "http://example.org/c": 2,
+          "http://example.org/d": 2
+        }
+      }
+    },
+    {
+      "name": "optional_condition_keeps_unlabelled_rows",
+      "query": "optional_condition.json",
+      "expect": {
+        "x": "http://example.org/a",
+        "labels_by_endpoint": {
+          "http://example.org/a": {"unbound": 2},
+          "http://example.org/b": {"保留": 2},
+          "http://example.org/c": {"unbound": 2},
+          "http://example.org/d": {"unbound": 2}
+        }
+      }
+    },
+    {
+      "name": "outer_filter_after_optional_keeps_only_labelled_b",
+      "query": "optional_then_outer_filter.json",
+      "expect": {
+        "x": "http://example.org/a",
+        "labels_by_endpoint": {
+          "http://example.org/b": {"保留": 2}
+        }
+      }
+    }
+  ],
+  "explain_expect": {
+    "query": "reach_closure.json",
+    "graph": "http://example.org/g",
+    "endpoint_pairs": 16
+  }
+}

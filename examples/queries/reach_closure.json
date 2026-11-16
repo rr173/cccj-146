@@ -1,0 +1,13 @@
+{
+  "project": {
+    "input": {
+      "path": {
+        "graph": {"type": "iri", "value": "http://example.org/g"},
+        "start": {"var": "x"},
+        "path": {"one_or_more": {"predicate": {"type": "iri", "value": "http://example.org/part"}}},
+        "end": {"var": "y"}
+      }
+    },
+    "vars": ["x", "y"]
+  }
+}

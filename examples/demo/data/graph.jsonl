@@ -1,0 +1,7 @@
+{"subject":{"type":"iri","value":"http://example.org/a"},"predicate":{"type":"iri","value":"http://example.org/part"},"object":{"type":"iri","value":"http://example.org/b"},"graph":{"type":"iri","value":"http://example.org/g"}}
+{"subject":{"type":"iri","value":"http://example.org/b"},"predicate":{"type":"iri","value":"http://example.org/part"},"object":{"type":"iri","value":"http://example.org/d"},"graph":{"type":"iri","value":"http://example.org/g"}}
+{"subject":{"type":"iri","value":"http://example.org/a"},"predicate":{"type":"iri","value":"http://example.org/part"},"object":{"type":"iri","value":"http://example.org/c"},"graph":{"type":"iri","value":"http://example.org/g"}}
+{"subject":{"type":"iri","value":"http://example.org/c"},"predicate":{"type":"iri","value":"http://example.org/part"},"object":{"type":"iri","value":"http://example.org/d"},"graph":{"type":"iri","value":"http://example.org/g"}}
+{"subject":{"type":"iri","value":"http://example.org/d"},"predicate":{"type":"iri","value":"http://example.org/part"},"object":{"type":"iri","value":"http://example.org/a"},"graph":{"type":"iri","value":"http://example.org/g"}}
+{"subject":{"type":"iri","value":"http://example.org/b"},"predicate":{"type":"iri","value":"http://example.org/label"},"object":{"type":"literal","value":"保留"},"graph":{"type":"iri","value":"http://example.org/g"}}
+{"subject":{"type":"iri","value":"http://example.org/c"},"predicate":{"type":"iri","value":"http://example.org/label"},"object":{"type":"literal","value":"其他"},"graph":{"type":"iri","value":"http://example.org/g"}}
